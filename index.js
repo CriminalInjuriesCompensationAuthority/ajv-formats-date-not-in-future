@@ -42,5 +42,16 @@ module.exports = {
     isToday: date => {
         const validatorService = createValidatorService();
         return validatorService.isToday(date);
+    },
+    compareDates: {
+        validate: date => {
+            const validatorService = createValidatorService();
+            return validatorService.isValidDateRepresentation(date);
+        },
+        compare: (a, b) => {
+            const validatorService = createValidatorService();
+            return validatorService.compare(a, b);
+        },
+        async: false
     }
 };
