@@ -75,7 +75,7 @@ describe('validator', () => {
             const b = new Date('2020-06-18');
             b.setDate(b.getDate() - 100);
             const result = ajvFormatsDateComparison.compareDates.compare(a, b);
-            expect(result).toEqual(false);
+            expect(result).toEqual(1);
         });
     });
 });
