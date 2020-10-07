@@ -33,6 +33,12 @@ describe('validator', () => {
         const result = ajvFormatsDateComparison.isInPast(date);
         expect(result).toEqual(false);
     });
+    it('isNotInPast', () => {
+        let date = new Date();
+        date = date.toISOString();
+        const result = ajvFormatsDateComparison.isNotInPast(date);
+        expect(result).toEqual(true);
+    });
     it('isTodayOrInPast', () => {
         let date = new Date();
         date = date.toISOString();
@@ -50,5 +56,26 @@ describe('validator', () => {
         date = date.toISOString();
         const result = ajvFormatsDateComparison.isToday(date);
         expect(result).toEqual(true);
+    });
+    it('isNotToday', () => {
+        let date = new Date();
+        date = date.toISOString();
+        const result = ajvFormatsDateComparison.isNotToday(date);
+        expect(result).toEqual(false);
+    });
+    describe('compareDates', () => {
+        it('should validate', () => {
+            let date = new Date();
+            date = date.toISOString();
+            const result = ajvFormatsDateComparison.compareDates.validate(date);
+            expect(result).toEqual(true);
+        });
+        it('should compare', () => {
+            const a = new Date('2020-06-18');
+            const b = new Date('2020-06-18');
+            b.setDate(b.getDate() - 100);
+            const result = ajvFormatsDateComparison.compareDates.compare(a, b);
+            expect(result).toEqual(1);
+        });
     });
 });

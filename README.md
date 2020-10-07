@@ -15,13 +15,14 @@ The available comparison functions are:
 * isTodayOrInPast
 * isNotTodayOrInPast
 * isToday
+* isNotToday
 * compareDates
 
 ## Usage
 
 ```js
 // you can require the whole module, or choose individual exports. i.e.
-// // requiring a single exported function.
+// requiring a single exported function.
 // const ajvFormatIsTodayOrInPast = require('ajv-formats-date-comparison').isTodayOrInPast;
 const ajvFormatsDateComparison = require('ajv-formats-date-comparison');
 

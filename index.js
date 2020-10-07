@@ -35,22 +35,22 @@ module.exports = {
         const validatorService = createValidatorService();
         return validatorService.isNotTodayOrInPast(date);
     },
-    isPresent: date => {
-        const validatorService = createValidatorService();
-        return validatorService.isPresent(date);
-    },
     isToday: date => {
         const validatorService = createValidatorService();
         return validatorService.isToday(date);
+    },
+    isNotToday: date => {
+        const validatorService = createValidatorService();
+        return validatorService.isNotToday(date);
     },
     compareDates: {
         validate: date => {
             const validatorService = createValidatorService();
             return validatorService.isValidDateRepresentation(date);
         },
-        compare: (a, b) => {
+        compare: (a, b, units = 'day') => {
             const validatorService = createValidatorService();
-            return validatorService.compare(a, b);
+            return validatorService.compare(a, b, units);
         },
         async: false
     }
